@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment1.CheckCurrentOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="" x:Name="priceTotal" FontSize="33" HorizontalTextAlignment="Center"></Label>
+            <Label Text="" x:Name="totalQuantity" FontSize="25" HorizontalTextAlignment="Center"></Label>
+            <ListView x:Name="orderList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Grid>
+                                <Label Text="Topping:" Grid.Column="0" Grid.Row="0"></Label>
+                                <Label Text="{Binding toppingName}" Grid.Column="1" Grid.Row="0"></Label>
+                                    <Label Text="{Binding pizzaTotal}" HorizontalOptions="End" Grid.Column="5" Grid.Row="0"></Label>
+                                <Label Text="Size: "  Grid.Row="1" Grid.Column="0" ></Label>
+                                    <Label Text="{Binding sizeName}" Grid.Row="1" Grid.Column="1" ></Label>
+                                    <Label Text="Quantity: " Grid.Column="5" Grid.Row="1"></Label>
+                                    <Label Text="{Binding pizzaQuantity}" HorizontalOptions="End" Grid.Column="5" Grid.Row="1"></Label>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="55"></ColumnDefinition>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="70"></ColumnDefinition>
+                                        <ColumnDefinition Width="20"></ColumnDefinition>
+                                        <ColumnDefinition Width="70"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Clicked" IsDestructive="True" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            <Button Text="PLACE ORDER" HorizontalOptions="Center" BackgroundColor="Coral" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

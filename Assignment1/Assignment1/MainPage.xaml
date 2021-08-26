@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assignment1.MainPage" Title="Monkey Pizza App">
+
+    <Grid>
+
+        <StackLayout>
+
+
+            <Grid>
+                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg" HorizontalOptions="Center"></Image>
+                <Button Text="Manager" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="CornflowerBlue" HeightRequest="35" TextColor="White" FontSize="12" Clicked="Button_Clicked"></Button>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+
+            </Grid>
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Label Text="Quantity: " TextColor="Black" Padding="10" VerticalTextAlignment="Center"></Label>
+                <Label x:Name="quantity" Text=" none" Padding="10" VerticalTextAlignment="Center" Margin="-25,0,0,0" TextColor="Black"></Label>
+
+
+            </StackLayout>
+            <Grid Margin="40,0,0,0">
+
+                <Button Text="1" Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button1"></Button>
+                <Button Text="2" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button2"></Button>
+                <Button Text="3" Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button3"></Button>
+                <Button Text="4" Grid.Row="1" Grid.Column="0" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button4"></Button>
+                <Button Text="5" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button5"></Button>
+                <Button Text="6" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button6"></Button>
+                <Button Text="7" Grid.Row="2" Grid.Column="0" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button7"></Button>
+                <Button Text="8" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button8"></Button>
+                <Button Text="9" Grid.Row="2" Grid.Column="2" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1" Clicked="button9"></Button>
+                <Button Text="RESET" Grid.Row="3" Grid.Column="0" BackgroundColor="Red" TextColor="White" BorderColor="Black" BorderWidth="1" Margin="5,5,5,5" FontSize="12" Clicked="resetButton"></Button>
+                <Button Text="0" Grid.Row="3" Grid.Column="1" Margin="5,5,5,5" BorderColor="Black" BorderWidth="1"></Button>
+                <Button Text="ADD" Grid.Row="3" Grid.Column="2" BackgroundColor="LawnGreen" Margin="5,5,5,5" FontSize="12" BorderColor="Black" BorderWidth="1" Clicked="addNewPizza"></Button>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <StackLayout Orientation="Horizontal" Margin="40,5,0,0">
+                <Label Text="Topping: " TextColor="Black"></Label>
+                <Label Text="0"  TextColor="Black" x:Name="toppingLabel"></Label>
+                <Label Text="Size: " Margin="100,0,0,0" TextColor="Black"></Label>
+                <Label Text="0" TextColor="Black" x:Name="sizeLabel"></Label>
+            </StackLayout>
+            <Grid>
+                <ListView x:Name="toppingsList" Grid.Column="0" ItemSelected="toppingList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding name}"
+                                  Detail="{Binding price}"/>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                <ListView x:Name="sizeList" Grid.Column="1" ItemSelected="sizeList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding size}"
+                                  Detail="{Binding price}"/>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+        </StackLayout>
+
+        
+    </Grid>
+
+</ContentPage>
